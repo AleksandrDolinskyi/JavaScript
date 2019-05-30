@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Циклы</title>
+</head>
+<body>
+<button onclick="doWhile()">Button</button>
+<p id="doWhile"></p>
+<script type="text/javascript">
+
+/* 
+** for - значение, условие, изменение 
+** for..in - перечисляемые свойства объекта
+** forEach - используется для перебора массива
+** while - проверяется условие потом действие
+** do while - проверяется действие потом условие
+*/
+
+var a = 0;
+while(a < 10){
+  a++;
+}
+
+var number = 10;
+while(number>=0) {
+	console.log("The while is " + number + "\n");
+	number--;
+}
+
+function doWhile() {
+  var text = "";
+  var i = 0;
+  do {
+    text += "The do while is " + i + "\n";
+    i++;
+  }
+  while (i < 11);
+  // document.getElementById("doWhile").innerHTML = text;;
+  document.getElementById("doWhile");
+  console.log(text);
+}
+
+for(var i=0; i<11; i++) {
+	// if(i==6) break; -  0,1,2,3,4,5
+	if(i==6) continue; 
+	console.log("The for is " + i + "\n");
+}
+
+for(var i =0; i <= 10; i++){
+  if(i % 2 != 0){
+    console.log('Odd number' + ' ' + i);
+
+  }
+}
+
+for(var i = 0; i > -10; i--){
+    for(var j = 0; j > 10; j++){
+      console.log(j);
+    }
+}
+
+</script>
+</body>
+</html>

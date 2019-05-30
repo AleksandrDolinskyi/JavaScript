@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Регулярные вырожения</title>
+</head>
+<body>
+<script type="text/javascript">
+
+	// Регулярные вырожения - поиск и замена 
+
+	var reg = new RegExp(/abc/);
+	console.log(reg);
+
+	// indexOf - позиция 
+
+	var string = "Regular";
+	console.log(string.indexOf("R"));
+
+	// search - возвращает позицию найденной строки
+
+	var exOne = "Начинаем изучать регулярные вырожения", patternOne = /чин/ig; 
+	console.log(exOne.search(patternOne));
+
+	/* 
+	** i - флажок для поиска в строке
+	** g - флажок для полнотекстового поиска в строке 
+	*/
+
+	// match - возвращает массив содержимого
+
+	console.log(exOne.match(patternOne));
+
+	// split - разделитель строки
+
+	var exTwo = "Начинаем изучать регулярные вырожения...", patternTwo = /чин/gi;
+	console.log(exTwo.split("-"));
+
+	// replace - меняет строки
+
+	console.log(exTwo.replace(" ", ":"));
+	console.log(exTwo.replace(/ /g, ":"));
+	console.log(exTwo.replace(/изучать/g, "$$"));
+	console.log(exTwo.replace(/изучать/i, "cосредоточились и $&"));
+	console.log(exTwo.replace(/(начинаем) (изучать)/i, "$2 $1"));
+
+	var exThree = "Александр Aleksandr";
+
+	function myFunc(match, offset, str){
+		return match.toUpperCase();
+	}
+
+	console.log(exThree.replace(/Александр/, myFunc));
+
+	function secondFunc(match, firstParam, secondParam, offset, str) {
+		return secondParam + " and " + firstParam;
+	}
+
+	console.log(exThree.replace(/(Александр) (Aleksandr)/, secondFunc));
+
+	var str = "Продолжаем изучать род регулярные вырожения";
+	
+	var pattern = /род/g;
+
+	console.log(pattern.lastIndex); // 0
+	console.log(pattern.test(str)); // true
+	console.log(pattern.lastIndex); // 4
+	console.log(pattern.exec(str)); // array
+	console.log(pattern.lastIndex); // 22
+
+	/*
+	** \d - поиск цифр
+	** \c - пробел, табуляция
+	** \w - слово, буква(лат.) + "_" (word)
+	** \в - граница, (HTM, CSS, JavaScript)
+	*/
+
+	var patternDigit = /\d/g; // поиск цифр
+	var patterStr = /HTML\d/; // поиск строки с цифрой
+
+	/*
+	** Инверторы 
+	** \D - не цифра
+	** \S - не пробел
+	** \S - не пробел
+	** \W - не слово (utf-8)
+	*/
+
+	/*
+	** Специальные символы - . () / \ и др.
+	** /./ - поиск любого символа кроме строки 
+	** []  - поиск в наборе одного из символов
+	** [-] - поиск в диапозоне  
+	** - ^ - найти все кроме  
+	** + - один символ и более  
+	*/
+
+	/*
+	** Квантификаторы
+ 	** {n}, где n - поиск кол-во символов
+	** ? = {0,1} - ноль или один
+	** * = {0,} - ноль или более
+	** . - любой символ
+	*/
+
+	var a = /\w{3}/; 
+	var b = /\w{3,10}/; 	
+	var c = "Александр александр алекс aleks";
+	var d = /Алекс?андр/ig;
+	
+	console.log(str.match(d));
+
+	var link = '<a href="http://google.com.ua" class="test">link</a>';
+	var patternFive = /href=".+"/gi; // поиск любого символа 
+	var patternSix = /href=".+?"/gi; // поиск любого символа кроме
+	var patternSeven = /href="[^"]+"/gi; // поиск любого кол-ва но не ковычки
+	
+	console.log(link.match(patternFive)); // жадный поиск
+	console.log(link.match(patternSix)); // ленивый поиск
+	console.log(link.match(patternSeven));
+
+	var aleks = "1992 - год, в котором я родил, а 2000 - год в котором я пошел в школу";
+	var patternAleks = /^\d+$/g; 
+	console.log(aleks.match(patternAleks));
+
+	// ^ - поиск сущности, находящейся в начале строки
+	// $ - поиск сущности, находящейся в конце строки
+	// | - вариация или поиск фраз
+
+	var kam = "1992 - год, в котором я родил, а 2000 - год в котором я пошел в школу";
+
+	var pattern = /\d+$/g;
+
+	console.log(kam.match(pattern));
+
+	// m - флаг полнотекстового поиска
+
+	var kamil = "1992 - год, в котором я родился, \n2000 а год в котором я пошел в школу";
+
+	document.write(kamil);
+
+	var patternTwo = /^\d+/gm;
+	console.log(kamil.match(patternTwo));
+
+	// | - вариация или поиск фраз
+	var teams = "Я болею за Реал, Баварию и Арсенал";
+	var patternT = /Реал|Баварию|Арсенал/g;
+	console.log(teams.match(patternT));	
+
+	var strong = "jsjsjs", patternA = /(js)/gi;
+	console.log(strong.match(patternA));
+
+	var anotherStr = "jsjsjs javascript";
+
+	// ?: - исключает скобочную группу из результата
+	var patternF = /(?:js) + (\w+)/i;
+	console.log(anotherStr.match(patternF));	
+
+
+	var quote = "Мартин Кинг: \"I' ve a dream\"";
+	var patternS = /(['"])(.*?)\1/g;
+
+	console.log(quote.match(patternS));
+
+	
+</script>
+</body>
+</html>

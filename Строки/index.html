@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Строки</title>
+</head>
+<body>
+<script type="text/javascript">
+
+	/*
+	** \f соответствует форме-фиду.
+    ** \r соответствует возврату каретки.
+    ** \n соответствует строке (пробел).
+    ** \t соответствует горизонтальной вкладке.
+    ** \v соответствует вертикальной вкладке.
+    ** \0 соответствует символу NUL.
+    ** [\b] соответствует обратному пространству.
+    ** \s соответствует пробелу (сокращение от [\f\n\r\t\v\u00A0\u2028\u2029]).
+    ** \s соответствует любому, кроме пробела (сокращенно [^\f\n\r\t\v\u00A0\u2028\u2029]).
+    ** \w соответствует любому буквенно-цифровому символу (символам слова), включая подчеркивание 
+    ** (сокращение от [a-zA-Z0-9_]).
+    ** \w соответствует любым несловным символам (сокращение от [^a-zA-Z0-9_]).
+	** \d соответствует любой цифре (сокращение от [0-9]).
+	** \d соответствует любой не-цифре (сокращение от [^0-9]).
+	** \b соответствует границе слова (позиция между словом и пробелом).
+	** \b соответствует границе, отличной от слова (сокращение от [^\b]).
+	** \cX соответствует управляющему символу. Например: \cm соответствует control-M.
+	** \xhh соответствует символу с двумя символами шестнадцатеричного кода.
+	** \uhhhh соответствует символу Unicode с четырьмя символами шестнадцатеричный код hhhh.
+	*/
+
+	var str = "JavaScript";
+	str.toUpperCase(); // верхний регистр
+	str.toLowerCase(); // нижний регистр
+	str.length; // длина строки 
+	str.charAt(0); // получить позицию 
+	str.indexOf(); // поиск с начала
+	str.lastIndexOf(); // поиск с конца
+
+	var a = "Another".length;
+	console.log(a);
+
+	var b = "Hello! My name is Aleksandr. For you?";
+
+	// Вырезать из строки
+	console.log(b.slice(0, 7)); 
+
+	var string = "Sometimes the same is different";
+
+	// Получить символ строки
+	console.log(string.charAt(0));
+	console.log(string.substring(10,21));
+
+	var upper = "Some string";
+	console.log(upper.toUpperCase()); 
+
+	var lower = "Some long string";
+	console.log(lower.toLowerCase()); 
+	console.log(lower.indexOf("n"));
+
+	// Разделить строки
+	console.log(lower.split(" "));
+
+	var Front = "Front-end";
+	var Possition = Front.lastIndexOf("end", 5);
+	if (Possition != -1) {
+		console.log(Possition);
+	} 
+
+</script>
+</body>
+</html>

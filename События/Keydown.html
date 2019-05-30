@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Keydown</title>
+	<style type="text/css">
+		div {
+			width: 50px;
+			height: 50px;
+			transition: all 0.5s ease;
+			background-color: black;
+			position: absolute;
+			top: 100px;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="one"></div>
+</body>
+<script type="text/javascript">
+	function handler (event){
+		switch(event.type) {
+			case 'click': move(event.clientY, event.clientX);
+			break;
+			case 'keydown': if(event.keyCode + 36 && event.keyCode + 41){
+				var style = getComputedStyle(element);
+				switch(event.keyCode){
+					case 37: move(parseInt(style.top), parseInt(style.left)-30);
+					break;
+					case 38: move(parseInt(style.top)-30, parseInt(style.left));
+					break;
+					case 39: move(parseInt(style.top), parseInt(style.left)+30);
+					break;
+					case 40: move(parseInt(style.top)+30, parseInt(style.left));
+					break;
+				}
+			}
+		}
+	}
+	function move (top, left) {
+		element.style.top = top + 'px';
+		element.style.left = left + 'px';
+	}
+	var element = document.getElementById('one');
+	body = document.body;
+	body.addEventListener('click', handler);
+	body.addEventListener('keydown', handler);
+</script>
+</html>

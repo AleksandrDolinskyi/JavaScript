@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mouseover</title>
+	<style type="text/css">
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+<div id="block"></div>
+<script type="text/javascript">
+	function changeBG(event){
+	this.style.backgroundColor = config[event.type];
+		
+	/* 
+
+	switch (event.type) {
+	case 'click':
+	this.style.backgroundColor = 'red';
+	break;
+	case 'mouseover':
+	this.style.backgroundColor = 'green';
+	break;
+	case 'mouseover':
+	this.style.backgroundColor = 'blue';
+	break; 
+	}
+
+	*/
+
+	}
+
+	var element = document.getElementById('block');
+	element.addEventListener('click', changeBG);
+	element.addEventListener('mouseover', changeBG);
+	element.addEventListener('mouseout', changeBG);
+
+	var config = {
+		'click': 'red',
+		'mouseout': 'pink',
+		'mouseover': 'lime'
+	};
+
+</script>
+</body>
+</html>

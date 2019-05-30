@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Функции</title>
+</head>
+<body>
+<script type="text/javascript">
+
+// Function Declaration
+
+var userName = 'Вася';
+
+function showMessage() {
+  var globals = 'Привет, я ' + userName;
+  console.log(globals);
+}
+
+showMessage(); 
+
+function showMessage() {
+var locals = 'Привет, я - Александр!'; 
+console.log(locals);
+}
+
+showMessage(); 
+
+// Function Expression
+
+var a = function() {
+	console.log("FE");
+};
+
+// Анониманая функция
+
+(function sayHello () {
+    console.log("hello!");
+})();
+
+// Аргументы функции 
+
+function One(a,b) {
+  var c = a + b;
+  return c;   
+}
+
+var res = One(2,3);
+console.log(res);
+
+// self - oбратный вызов
+// this - прямой вызов  
+
+function Person() {
+
+  var self = this; 
+  self.age = 0;
+
+  setInterval(function growUp() {
+    self.age++;
+  }, 1000);
+}
+
+setTimeout(function(){
+console.log(1);
+}, 500 );
+
+// Замыкание 
+
+function Two(a) {
+	return function(b) {
+		return a + b;
+	}
+}
+
+var other = Two(2);
+
+var result = other(3);
+
+console.log(result);
+
+
+// Наследование 
+
+function A(x) {
+  function B(y) {
+    function C(z) {
+      console.log(x + y + z);
+    }
+    C(3);
+  }
+  B(2);
+}
+A(1)
+
+// Наследование и умножение 
+
+function outside() {
+  var x = 5;
+  function inside(x) {
+    return x * 2;
+  }
+  return inside;
+}
+outside()(10);
+
+// Конструктор 
+
+function User(Name, Age) {
+  this.name = Name;
+  this.age = Age;
+  this.displayInfo = function(){
+    document.write("Имя: " + this.name  + "<br/>" + "Возраст: " + this.age + " лет.");
+  };
+}
+
+var man = new User("Александр", 26);
+console.log(man.name); 
+man.displayInfo();
+
+// Конструктор как прототип 
+
+var Person = function(name) {
+    this.name = name;
+    this.canTalk = true;
+    this.greet = function() {
+        if (this.canTalk) {
+            console.log('Привет, я ' + this.name);
+        }
+    };
+};
+
+var Employee = function(name, title) {
+    this.name = name;
+    this.title = title;
+    this.greet = function() {
+        if (this.canTalk) {
+            console.log('Привет, я ' + this.name + ', ' + this.title);
+        }
+    };
+};
+
+Employee.prototype = new Person();
+
+var Customer = function(name) {
+    this.name = name;
+};
+
+Customer.prototype = new Person();
+
+var Mime = function(name) {
+    this.name = name;
+    this.canTalk = false;
+};
+
+Mime.prototype = new Person();
+
+var bob = new Employee('Боб');
+var joe = new Customer('Джо');
+var rg = new Employee('Ред');
+var mike = new Customer('Майк');
+var mime = new Mime('Мим');
+
+bob.greet();
+joe.greet();
+rg.greet();
+mike.greet();
+mime.greet();
+
+</script>
+</body>
+</html>

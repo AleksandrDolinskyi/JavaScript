@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Математические операции</title>
+</head>
+<body>
+<script type="text/javascript">
+
+	var x = 5;
+	var y = 10;
+	var result;
+	result = x + y;
+	console.log(result);
+	
+	/*
+	** infinity - бесконечность
+	** NaN - не верное число
+	** parseInt - целое число
+	** parseFloat - число с плавоющей точкой
+	** toFixed - возвращает тип данных  
+	*/
+
+	var f = 12;
+
+	console.log(parseFloat(f.toFixed(12)));
+
+	// 12.000000000000
+
+	/*
+	** Math.random - числа с плавающей точкой IEEE 754 с округлением в сторону ближайшего четного.
+	** Math.floor() - возвращает наибольшее целое, меньшее или равное аргументу.
+	** Math.ceil() - возвращает наименьшее целое, большее или равное аргументу.
+	*/
+
+	Math.random()*10;
+	Math.floor(0.0474297619538544);
+
+	var example = math.floor(1.7*2)/2; // 1.5
+	var example = math.ceil(1.7*2)/2; // 2
+
+	var Weather = ["Snow","Rain","Hail","Money is poured"];
+	Weather[Math.floor(Math.random() * 4)];
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>События</title>
+	<style type="text/css">
+		.block {
+			display: block;
+			width: 10%;
+		}
+		input, button {
+			margin-top: 20px;
+			margin-bottom: auto;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		input:hover {
+			cursor: text;
+		}
+		button:hover {
+			cursor: pointer;
+		}	
+	</style>
+</head>
+<body>
+	<div class="block">
+	<button onclick="a()">alert</button>
+	<button onclick="c()">confirm</button>
+	<button onclick="p()">prompt</button>
+	<input type="text" id="input" placeholder="Enter text">
+	</div>
+	<script type="text/javascript">	
+	
+	function a (){
+		window.location.href = "/";d
+	}
+
+	function c (){
+		confirm('confirm');
+	}
+
+	function p (){
+		prompt('prompt');
+	}
+
+	document.getElementById('input').onclick = function () {};
+
+	document.addEventListener('click', function(){}, false);
+	
+	function func () {
+		console.log(this.getAttribute('id'));
+		// console.log(this); - получить все
+	}
+
+	/* var collection = document.getElementByTagName('button');
+	** for (var i = 0; i < collection; i++){
+	**  collection[i].addEventListener('click', func);
+	** }
+    */
+
+	/*
+	** mouse event - событие мыши
+	** click - нажали на кнопку мышки
+	** mousedown - нажали левую кнопку мышки
+	** mouseup - отпустили левую кнопку мышки
+	** contextmenu - правая кнопка мыши
+	** mousemove - когда мышка двигается
+	** mouseover - при наведении мышки
+	*/
+
+	/*
+	** keyboard - событие клавиатуры
+	** keydown - нажали кнопку на клавиатуре
+	** keyup - отпустили кнопку на клавиатуре
+	** keypress - нажали или отпустили кнопку
+	*/
+
+	/*
+	** windows - события окна 
+	** resize - ширина или высота  
+	** load - все загружено
+	*/
+
+	// window.location.href = "";
+
+	/*
+	** mousemove -  когда мышка двигается
+	** console.log("X: " + event.which); - левая кнопка мышки  
+	** console.log("X: " + event.pageX + ' y:' + event.pageY); - относительно всего документа
+	** console.log("X: " + event.clientX + ' y:' + event.clientY); - относительно окна документа
+	** console.log(event.type);
+	*/ 
+
+	/* 
+	** keyup - клавиатура
+	** console.log("keyCode: " + event.keyCode);
+	** console.log("charCode: " + event.charCode);
+	** console.log("char: " + event.char);
+	** console.log("which: " + event.whic);
+	*/
+
+
+</script>
+</body>
+</html>

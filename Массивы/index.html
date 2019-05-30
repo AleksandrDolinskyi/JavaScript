@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Массивы</title>
+</head>
+<body>
+<script type="text/javascript"> 
+
+	// Узнать длину массива 
+	var arr = ["index", 25, null, false, '2354'];
+	console.log(arr.length);
+	console.log(arr[0]); 
+
+	// Добавить значение
+	var FavoriteColor = ["blue","red","black"];
+	FavoriteColor[0] = "white"; 
+	console.log(FavoriteColor);
+	
+	// Добавить значение в начало массива
+	var Fruits = ["Apple","Pear","Peach"];
+	Fruits.unshift("Lemon"); 
+	console.log(Fruits);
+
+	// Добавить значение в конец массива
+	Fruits.push("Banana"); 
+	console.log(Fruits);   
+
+	// Cложить массивы
+	var Animals = ["Bear","Cat","Panda"], Fish = ["Dolphin","Shark","Piranha"], Insects = ["Grasshopper","Butterfly","Dragonfly"], Birds = ["Hen","Parrot"];
+
+	var Berbecue = Animals.concat(Fish, Insects, Birds);
+	console.log(Berbecue);
+
+	// Поиск индекса в массиве 
+	var colors = ["gray","yellow","orange"];
+	colors.indexOf("orange");
+
+	// Разделить массивы 
+	var names = 'Masha!, Peta!, Vasiluy!';
+	var array = names.split(', ');
+	for (var i = 0; i < arr.length; i++) {
+ 	 console.log( 'Hello, ' + array[i]);
+	}
+
+	// Объединенить все элементы массива в одну строчку
+	var PersonalBata = ["Passport","Phone","Bank","Card","Passwords"];
+	PersonalBata.join(", ");
+
+	// Вырезать по индексу
+	var s = ["a", "b", "c", "d"];
+	console.log(s.slice(1,2));
+
+	// Сортировка массива 
+	var i = [2, 5, 8, 1, 4];
+	console.log(i.sort());
+	console.log(i);
+
+	// Создать новый массив, в который скопируются элемент
+	var copy = [1, 2];
+	var newCopy = copy.concat(3, 4);
+	console.log(newCopy); 
+
+
+</script>
+</body>
+</html>

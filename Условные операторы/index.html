@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Условные операторы</title>
+</head>
+<body>
+<script type="text/javascript">
+
+var x = 4;
+var y = 5;
+if (x > y) {
+	console.log("X > Y");
+} else {
+	console.log("X < Y");
+}
+
+var a = 3;
+
+if(false){
+	a = a + 2;
+}
+
+a = a + 5;
+
+console.log(a);
+
+var a = 50;
+
+if (a > 50) {
+	console.log("Значение больше 50");
+} else {
+	console.log("Значение равно 50");
+}
+
+var b = 49;
+
+if (b > 50) {
+	console.log("Значение больше 50");
+} else if(b == 50){
+	console.log("Значение равно 50");
+} else {
+	console.log("Значение меньше 50");
+}
+
+var u = "u";
+var e = "e";
+
+// Если u больше е то в f запишеться u противном случаи е
+
+var f = (u<e) ? u : e;
+console.log(f);
+
+/*
+** || -> логическое ИЛИ (OR)
+** && -> логическое И  (AND)
+** !  -> логическое НЕ (NOT)
+** ^  -> исключение
+** true -> 1 
+** false -> 0
+*/
+
+function test(fruit) {
+  if (fruit == 'apple' || fruit == 'strawberry') {
+    console.log('red');
+  }
+}
+
+var redFruits = ['apple', 'strawberry', 'cherry', 'cranberries'];
+
+//  Выгружаем список фруктов
+
+if (redFruits.includes(fruit)) {
+    console.log('red');
+}
+
+// Найти число
+
+var a =3, b = 4, c = 9;
+
+if(a > b){
+	if(a > c){
+		console.log('a = ' + a);
+	}else{
+		if(c > b){
+			console.log('c = ' + c);
+		}else {
+			console.log('b = ' + b);
+		}
+	}
+}else{
+	if(b > c){
+		console.log('b = ' + b);
+	}else{
+		console.log('c = ' + c);
+	}
+}
+
+var c = 5;
+var d = 9;
+var e = c + d;
+
+switch(e) {
+	case 11:
+	case 13:
+		console.log("Это не то, что мы ожидали ");
+		break;
+	case 12:
+		console.log("Это то, что мы ожидали");
+		break;
+	default:
+		console.log("Действие по умолчанию");
+	        break;
+}
+
+switch (browser) {
+case 'IE': 
+console.log( 'О, да у вас IE!' );
+break;
+
+case 'Chrome':
+case 'Firefox':
+case 'Safari':
+case 'Opera':
+console.log( 'Да, и эти браузеры мы поддерживаем' );
+    break;
+    break;
+    break;
+default:
+console.log( 'Мы надеемся, что и в вашем браузере все ок!' );
+}
+
+function test(color) {
+  switch (color) {
+    case 'red':
+      return ['apple', 'strawberry'];
+    case 'yellow':
+      return ['banana', 'pineapple'];
+    case 'purple':
+      return ['grape', 'plum'];
+    default:
+      return [];
+  }
+}
+
+test(null); // []
+test('yellow'); // ['banana', 'pineapple']
+
+</script>
+</body>
+</html>
